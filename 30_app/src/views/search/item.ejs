@@ -1,0 +1,10 @@
+<div class="card">
+  <a href="/shops/<%= id %>" class="text-body">
+    <img class="card-img-top" src="/public/images/dummy/286x180.png" />
+    <div class="card-body">
+      <h5 class="card-title"><%= name %></h5>
+      <p class="card-text"><%= categories %></p>
+      <p class="card-text"><span class="rate-star" style="--rate: <%= (score/5.00)*100 %>%;"></span> <%= padding(score) %></p>
+    </div>
+  </a>
+</div>

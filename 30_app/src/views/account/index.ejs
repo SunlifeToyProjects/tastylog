@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include("../_share/metadata.ejs") %>
+
+  <title>会員メニュー</title>
+
+  <%- include("../_share/stylesheets.ejs") %>
+</head>
+
+<body>
+  <div class="outerframe">
+
+    <%- include("../_share/navbar.ejs") %>
+
+    <div class="container">
+      <h1 class="my-5">会員ページ</h1>
+      <div class="row">
+        <nav class="col-md-3 mb-3">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" href="#">ホーム</a>
+            <a class="list-group-item list-group-item-action" href="#">マイ食レポ</a>
+            <a class="list-group-item list-group-item-action" href="#">設定</a>
+          </div>
+        </nav>
+        <main role="main" class="col-md-9">
+        </main>
+      </div>
+    </div>
+
+    <%- include("../_share/footer.ejs") %>
+
+  </div>
+  <%- include("../_share/javascripts.ejs") %>
+</body>
+</html>

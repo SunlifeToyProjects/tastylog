@@ -1,0 +1,168 @@
+html,
+body {
+  height: 100%;
+}
+.outerframe {
+  position: relative;
+}
+.outerframe nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.outerframe main {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.outerframe footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+h1 {
+  font-size: 7.5em;
+  margin: 15px 0px;
+  font-weight:bold;
+}
+h2 {
+  font-weight:bold;
+}
+.btn {
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+  position: relative;
+  padding: 8px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  letter-spacing: 2px;
+  transition: 0.2s ease;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+
+/*
+  404 page.
+*/
+svg {
+  width: 100%;
+  visibility: hidden;
+}
+
+/*
+  500 page.
+*/
+.gears {
+  position: relative;
+  margin: 0 auto;
+  width: auto; height: 0;
+}
+.gear {
+  position: relative;
+  z-index: 0;
+  width: 120px; height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: black;
+}
+.gear:before{
+  position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
+  z-index: 2;
+  content: "";
+  border-radius: 50%;
+  background: #ffffff;
+}
+.gear:after {
+  position: absolute; left: 25px; top: 25px;
+  z-index: 3;
+  content: "";
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  border: 5px solid black;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.gear.one {
+  left: -130px;
+}
+.gear.two {
+  top: -75px;
+}
+.gear.three {
+  top: -235px;
+  left: 130px;
+}
+.gear .bar {
+  position: absolute; left: -15px; top: 50%;
+  z-index: 0;
+  width: 150px; height: 30px;
+  margin-top: -15px;
+  border-radius: 5px;
+  background: black;
+}
+.gear .bar:before {
+  position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
+  z-index: 1;
+  content: "";
+  border-radius: 2px;
+  background: #ffffff;
+}
+.gear .bar:nth-child(2) {
+  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+}
+.gear .bar:nth-child(3) {
+  transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+}
+@-webkit-keyframes clockwise {
+  0% { -webkit-transform: rotate(0deg);}
+  100% { -webkit-transform: rotate(360deg);}
+}
+@-webkit-keyframes anticlockwise {
+  0% { -webkit-transform: rotate(360deg);}
+  100% { -webkit-transform: rotate(0deg);}
+}
+@-webkit-keyframes clockwiseError {
+  0% { -webkit-transform: rotate(0deg);}
+  20% { -webkit-transform: rotate(30deg);}
+  40% { -webkit-transform: rotate(25deg);}
+  60% { -webkit-transform: rotate(30deg);}
+  100% { -webkit-transform: rotate(0deg);}
+}
+@-webkit-keyframes anticlockwiseErrorStop {
+  0% { -webkit-transform: rotate(0deg);}
+  20% { -webkit-transform: rotate(-30deg);}
+  60% { -webkit-transform: rotate(-30deg);}
+  100% { -webkit-transform: rotate(0deg);}
+}
+@-webkit-keyframes anticlockwiseError {
+  0% { -webkit-transform: rotate(0deg);}
+  20% { -webkit-transform: rotate(-30deg);}
+  40% { -webkit-transform: rotate(-25deg);}
+  60% { -webkit-transform: rotate(-30deg);}
+  100% { -webkit-transform: rotate(0deg);}
+}
+.gear.one {
+  -webkit-animation: anticlockwiseErrorStop 2s linear infinite;
+}
+.gear.two {
+  -webkit-animation: anticlockwiseError 2s linear infinite;
+}
+.gear.three {
+  -webkit-animation: clockwiseError 2s linear infinite;
+}
+
+/*
+  503 page
+*/
+.outerframe i {
+  font-size: 12rem;
+}

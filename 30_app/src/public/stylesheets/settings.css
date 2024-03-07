@@ -1,0 +1,31 @@
+.profile-header {
+  position: relative;
+}
+
+.profile-header-image {
+  position: relative;
+  padding-bottom: 70px;
+  margin-bottom: 1rem;
+}
+
+.profile-header-image>img {
+  width: 100%;
+}
+
+.profile-header-title {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.profile-header-icon {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 0 2rem;
+  line-height: 100px;
+  font-size: 70px;
+  text-align: center;
+}

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-3 text-truncate">
+    <span class="h1"><i class="fa fa-fw fa-user"></i></span>
+    <span><%= user_name %></span>
+  </div>
+
+  <div class="col-sm-9">
+    <div class="card bg-light mb-3 balloon">
+      <div class="card-body">
+        <div class="row">
+
+            <div class="col-sm-11">
+              <p class="card-text" style="min-height: 2rem;"><%= description %></p>
+              <p class="card-text text-muted">
+                <small>
+                  訪問日：<%= visit ? moment(visit).format("YYYY/MM/DD") : '-' %>
+                  <span class="rate-star" style="--rate: <%= (score/5.00)*100 %>%;"></span> <%= padding(score) %>
+                </small>
+              </p>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+[client]
+user = YOUR-ADMIN-USERNAME
+password = YOUR-ADMIN-PASSWORD
+host = YOUR-RDS-HOST
+port = 3306

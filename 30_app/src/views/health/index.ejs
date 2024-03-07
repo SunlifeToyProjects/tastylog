@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <%- include("../_share/metadata.ejs") %>
+
+  <title>診断ページ</title>
+
+  <%- include("../_share/stylesheets.ejs") %>
+</head>
+
+<body>
+  <div class="container">
+    <div class="py-5 text-center">
+      <div class="display-1 text-center my-5">
+        Health check
+      </div>
+    </div>
+    <div class="row no-gutters justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Server connection check results
+          </div>
+          <div class="card-body p-0">
+            <div class="row no-gutters py-2 border-bottom border-200">
+              <div class="col-sm-2 text-center">
+                <% if (ap) { %>
+                <i class="fas fa-check-circle text-success"></i>
+                <% } else { %>
+                <i class="fas fa-times-circle text-danger"></i>
+                <% } %>
+              </div>
+              <div class="col-sm-10">
+                Application Server
+              </div>
+            </div>
+            <div class="row no-gutters py-2">
+              <div class="col-sm-2 text-center">
+                <% if (db) { %>
+                <i class="fas fa-check-circle text-success"></i>
+                <% } else { %>
+                <i class="fas fa-times-circle text-danger"></i>
+                <% } %>
+              </div>
+              <div class="col-sm-10">
+                Database Server
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <%- include("../_share/javascripts.ejs") %>
+</body>
+
+</html>
