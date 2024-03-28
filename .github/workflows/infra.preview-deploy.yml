@@ -1,23 +1,23 @@
 name: "infra preview & deploy"
 
 on:
-	push:
-		branches:
-			- main
-		paths:
-			- 10_infra/**
-			- .github/workflows/**
-	workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 10_infra/**
+      - .github/workflows/**
+  workflow_dispatch:
 
 permissions:
-	id-token: write
-	contents: read
+  id-token: write
+  contents: read
 
 jobs:
-	preview:
-		name: "Preview"
-		runs-on: ubuntu-latest
-		steps:
-			- run:
-				echo "Hello world"
+  preview:
+    name: "Preview"
+    runs-on: ubuntu-latest
+    steps:
+      - run:
+        echo "Hello world"
 
