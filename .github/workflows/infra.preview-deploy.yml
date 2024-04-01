@@ -34,15 +34,15 @@ jobs:
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: ${{env.TF_VERSION}}
+          terraform_version: ${{ env.TF_VERSION }}
       - name: Terraform format
         run: 
           terraform fmt -check
       - name: Configure AWS credential  
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: ${{env.AWS_REGION}}
-          role-to-assume: ${{secrets.AWS_ROLE_ARN}}
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
       - name: Terraform init
         run:
           terraform init -no-color
@@ -51,13 +51,13 @@ jobs:
           terraform validate -no-color
       - name: Terraform Plan
         run:
-         terraform plan \
-           -var 'project=${{env.TF_PROJECT}}' \
-           -var 'environment=${{env.TF_ENVIRONMENT}}' \
-           -var 'username=${{secrets.MYSQL_USERNAME}}' \
-           -var 'password=${{secrets.MYSQL_PASSWORD}}' \
-           -input=false \
-           -no-color \
-           -detailed-exitcode
+          terraform plan \
+            -var 'project=${{ env.TF_PROJECT }}' \
+            -var 'environment=${{ env.TF_ENVIRONMENT }}' \
+            -var 'username=${{ secrets.MYSQL_USERNAME }}' \
+            -var 'password=${{ secrets.MYSQL_PASSWORD }}' \
+            -input=false \
+            -no-color \
+            -detailed-exitcode
 
 
