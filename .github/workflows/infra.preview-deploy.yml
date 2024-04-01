@@ -47,8 +47,8 @@ jobs:
         run:
           terraform init -no-color
       - name: Terraform validate
-          run:
-           terraform validate -no-color
+        run:
+          terraform validate -no-color
       - name: Terraform Plan
           run:
            terraform plan \
