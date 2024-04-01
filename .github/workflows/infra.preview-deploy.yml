@@ -32,11 +32,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: ${{ env.TF_VERSION }}
       - name: Terraform format
-        run: 
+        run: | 
           terraform fmt -check
       - name: Configure AWS credential  
         uses: aws-actions/configure-aws-credentials@v4
@@ -44,20 +44,13 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
       - name: Terraform init
-        run:
+        run: |
           terraform init -no-color
       - name: Terraform validate
-        run:
+        run: |
           terraform validate -no-color
-      - name: Terraform Plan
-        run:
-          terraform plan \
-            -var 'project=${{ env.TF_PROJECT }}' \
-            -var 'environment=${{ env.TF_ENVIRONMENT }}' \
-            -var 'username=${{ secrets.MYSQL_USERNAME }}' \
-            -var 'password=${{ secrets.MYSQL_PASSWORD }}' \
-            -input=false \
-            -no-color \
-            -detailed-exitcode
+      - name: Terraform plan
+        run: |
+          terraform plan -var 'project=${{ env.TF_PROJECT }}' -var 'environment=${{ env.TF_ENVIRONMENT }}'  -var 'username=${{ secrets.MYSQL_USERNAME }}' -var 'password=${{ secrets.MYSQL_PASSWORD }}' -input=false -no-color -detailed-exitcode
 
 
