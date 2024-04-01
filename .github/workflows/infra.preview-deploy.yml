@@ -34,4 +34,4 @@ jobs:
           terraform_version: ${{env.TF_VERSION}}
       - name: Terraform format
         run: 
-        terraform fmt -check
+          terraform fmt -check
