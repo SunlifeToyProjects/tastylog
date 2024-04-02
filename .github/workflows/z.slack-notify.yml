@@ -11,7 +11,7 @@ jobs:
       - name: Slack notify
         uses: slackapi/slack-github-action@v1.25.0
         with:
-          channel-id: 'C04F8P2TD6Y'
+          channel-id: "C04F8P2TD6Y"
           payload: 
             {
               "attachments": [
@@ -29,7 +29,7 @@ jobs:
                       "type": "section",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "Hello world :ghost"
+                        "text": "Hello world :ghost:"
                       }
                     }
                   ]
