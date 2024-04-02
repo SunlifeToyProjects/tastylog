@@ -1,4 +1,4 @@
-name: "slack notify"
+name: "z Slack Notify"
 
 on: 
   workflow_dispatch:
@@ -6,34 +6,35 @@ on:
 jobs:
   notify:
     name: Slack notify
-  runs-on: ubuntu-latest
-  steps:
-    uses: slackapi/slack-github-action@v1.25.0
-    with:
-      channel-id: 'C04F8P2TD6Y'
-      payload: 
-        {
-          "attachments": [
+    runs-on: ubuntu-latest
+    steps:
+	    - name: Slack notify
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          channel-id: 'C04F8P2TD6Y'
+          payload: 
             {
-              "blocks": [
+              "attachments": [
                 {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "header",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Hello world :ghost"
-                  }
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "header",
+                        "emoji": true
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "Hello world :ghost"
+                      }
+                    }
+                  ]
                 }
               ]
             }
-          ]
-        }
-    env:
-      SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN }}
+        env:
+          SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN }}
