@@ -20,7 +20,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "This is a header block",
+                  "text": "header",
                   "emoji": true
                 }
               },
