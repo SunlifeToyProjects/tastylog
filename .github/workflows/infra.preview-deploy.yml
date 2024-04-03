@@ -87,4 +87,29 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  deploy:
+    name: "Deploy"
+    needs: preview
+    if: needs.preview.outputs.TF_PLAN_EXITCODE == 2
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - name: Terraform format
+        run: | 
+          terraform fmt -check
+      - name: Configure AWS credential  
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+      - name: Terraform init
+        run: |
+          terraform init -no-color
+
 
